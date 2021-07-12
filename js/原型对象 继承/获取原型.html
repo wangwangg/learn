@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1.通过__proto__ 获取原型
+      let cat = {
+        name: "ss",
+        // eat: function () {    //会覆盖原型上的方法
+        //   console.log("///");
+        // },
+      };
+      cat.__proto__.eat = function () {
+        //在cat的原型上面添加 eat的方法
+        console.log("吃------");
+      }; 
+      // console.log(cat.prototype);   //undefined
+      cat.eat();
+
+      // 2. 通过构造函数上的prototype 获取原型
+      function Person(name, age) {
+        //this指向new创建的对象
+        this.name = name;
+        this.age = age;
+      }
+      let person1 = new Person("ss", 34);
+      Person.prototype.speak = function () {
+        // 在构造函数 上添加speak方法
+        console.log("wuwuwuw");
+      };
+      // console.log(Person.prototype);
+      // console.log(Person.prototype.__proto__);
+      Person.prototype.__proto__.PPP = function () {
+        console.log("adasd");
+      };
+      // person1.ppp();  //报错
+
+      console.log(person1);
+      person1.speak();
+    </script>
+  </body>
+</html>

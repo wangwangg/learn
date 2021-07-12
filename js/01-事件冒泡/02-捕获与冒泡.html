@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <title>事件冒泡</title>
+    <script type="text/javascript" src="../jquery-1.11.2.min.js"></script>
+    <style type="text/css">
+    #a {
+        width: 200px;
+        height: 200px;
+        background-color: gray;
+    }
+ 
+    #b {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+    }
+    </style>
+</head>
+<body>
+  <div id="a">
+    <div id="b">
+      <a href="http://www.baidu.com" target="_blank">百度一下</a>
+    </div>
+  </div>
+  
+  <script type="text/javascript">
+    //https://blog.csdn.net/litong149/article/details/82560712
+    document.getElementById("a").addEventListener("click", function(e) {
+        console.log("a事件被触发，" + this.id);
+    }, true);  //true,事件捕获；false,事件冒泡。默认false,即事件冒泡。
+    document.getElementById("b").addEventListener("click", function(e) {
+        console.log("b事件被触发，" + this.id);
+    }, true);
+    </script>
+</body>
+ 
+</html>

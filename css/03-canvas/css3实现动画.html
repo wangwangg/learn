@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .praise_bubble{
+      width:100px;
+      height:200px;
+      position:relative;
+      background-color:#f4f4f4;
+    }
+    .bubble{
+        position: absolute;
+        left:50%;
+        bottom:0;
+    }
+    .bl1{
+    animation:bubble_y 4s linear 1 forwards ; 
+    }
+    @keyframes bubble_y {
+        0% {
+            margin-bottom:0;
+        }
+        100% {
+            margin-bottom:200px;
+        }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas">你的浏览器不支持canvas，请跟换其他浏览器试一试</canvas>
+</body>
+<script>
+  window.onload=function(){
+    var canvas=document.getElementById('canvas');
+    canvas.height=728;
+    canvas.width=1024;
+    var context=canvas.getContext('2d');
+    context.fillStyle='red';
+    context.beginPath();
+    context.arc(800,300,30,0,2*Math.PI,true);
+    context.closePath();
+    context.fill();
+    setInterval(function(){
+        run(context);
+    }, 50);
+};
+var speed=0;
+var startPoint=800;
+function run(cxt){
+    speed=-7;
+    cxt.clearRect(0,0,1024,728);
+    //cxt.top+=speed;    
+    startPoint+=speed;
+    cxt.beginPath();
+    cxt.arc(startPoint,300,30,0,2*Math.PI,true);
+    cxt.closePath();
+    cxt.fill();
+}
+</script>
+</html>

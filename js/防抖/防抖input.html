@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div>
+      <input id="inp" type="text" oninput="inpVal()" />
+    </div>
+
+    <script>
+      function debounce(fun, dely) {
+        let timer = null;
+
+        return function () {
+          if (timer) {
+            //有定时器时
+            clearTimeout(timer);
+          }
+          timer = setTimeout(fun, dely);
+        };
+      }
+
+      function doit(e) {
+        const val = document.getElementById("inp").value;
+        console.log("输入了" + val);
+      }
+      inpVal = debounce(doit, 1000);
+    </script>
+  </body>
+</html>

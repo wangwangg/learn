@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 使用after伪元素清除浮动（推荐使用） -->
+  <!-- 优点：符合闭合浮动思想，结构语义化正确 -->
+  <!-- 缺点：ie6-7不支持伪元素：after，使用zoom:1触发hasLayout. -->
+  <style>
+    .divcss5{ width:400px; border:1px solid #F00; background:#FF0} 
+    .divcss5-left,.divcss5-right{ width:180px; height:100px; 
+    border:1px solid #00F; background:#FFF} 
+    .divcss5-left{ float:left} 
+    .divcss5-right{ float:right} 
+    .clearFix::after {
+      content: '';
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+    }
+    .clearfix{
+        *zoom: 1;/*ie6清除浮动的方式 *号只有IE6-IE7执行，其他浏览器不执行*/
+    }
+  </style>
+</head>
+<body>
+  <div class="divcss5 clearFix"> 
+    <div class="divcss5-left">left浮动</div> 
+    <div class="divcss5-right">right浮动</div> 
+</div> 
+</body>
+</html>

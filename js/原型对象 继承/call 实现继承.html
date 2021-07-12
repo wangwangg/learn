@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //call 实现继承 是可以实现多继承的
+      //dog 构造函数
+      function Dog() {
+        this.eat = function () {
+          console.log("吃骨头");
+        };
+      }
+      //bird 构造函数
+      function Bird() {
+        // console.log(this, "/////");  // cat
+        this.fly = function () {
+          console.log("我会飞");
+        };
+      }
+
+      // cat 构造函数想要使用dog里面的方法
+      function Cat() {
+        console.log(this, "this---"); //this指向cat
+        //继承dog
+        Dog.call(this);
+
+        //继承bird
+        Bird.call(this);
+      }
+      let cat = new Cat();
+      cat.eat();
+      cat.fly();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .block{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+  <div class="block"></div>
+  <div class="block"></div>
+  <div class="block"></div>
+  <div class="block"></div>
+  <div class="block"></div>
+<script>
+  //https://blog.csdn.net/qq_44885374/article/details/91807435
+  //因为querySelector得到的是一个静态列表，它不会对domj结构进行动态查询，再次重新获取。
+    window.onload=function(){
+        var block=document.querySelectorAll(".block");
+        // console.log(document.body.innerHTML);
+        document.body.innerHTML+='<div class="block"></div>';
+        console.log(block.length);  //5
+        for(var i=0;i<block.length;i++){  //对这个block列表中元素进行操作，会发现没有效果，
+            block[i].style.background="red";
+        }
+    }
+</script>
+</body>
+</html>

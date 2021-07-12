@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./jquery.min.js"></script>
+  <style>
+    #divOne {
+      border:1px solid red
+    }
+    #divTwo {
+      border:1px solid blue
+    }
+  </style>
+</head>
+<body>
+  <body>
+    　　<form id="form1" runat="server">
+    　　　　<div id="divOne" onclick="alert('我是最外层');">
+    　　　　　　<div id="divTwo" onclick="alert('我是中间层！')">
+    　　　　　　　　<a id="hr_three" href="http://www.baidu.com" onclick="alert('我是最里层！')">点击我</a>
+    　　　　　　</div>
+    　　　　</div>
+    　　</form>
+    </body>
+</body>
+
+<script>
+  // 1.event.stopPropagation();   会弹出：我是最里层，然后链接到百度
+  // const hr_three = document.querySelector('#hr_three')
+  // console.log(hr_three);
+  // hr_three.addEventListener('click',function(event){
+  //   event.stopPropagation();
+  // })
+
+  // 2.return false; 
+  // 2-1
+  // 在jQuery中使用return false时，相当于同时使用event.preventDefault和event.stopPropagation，
+  // 它会阻止冒泡也会阻止默认行为。 但是使用原生js写时，return false只会阻止默认行为。
+  //   $(function() {
+  // 　　$("#hr_three").click(function(event) {
+  // 　　　　return false;
+  // 　　  });
+  //   });
+
+  // 2-2
+  // 使用原生js方法时，return false只能阻止默认行为，但却不能阻止冒泡
+  // const hr_three = document.querySelector('#hr_three')
+  // // hr_three.addEventListener('click',function(){  //使用addEventLister return false 时不起效果
+  // //   return false
+  // // })
+  // hr_three.onclick = function (){
+  //   return false
+  // }
+
+  // 3.event.preventDefault();  阻止默认行为，不阻止冒泡 阻止了a标签的跳转
+  // const hr_three = document.querySelector('#hr_three')
+  // console.log(hr_three);
+  // hr_three.addEventListener('click',function(event){
+  //   event.preventDefault();
+  // })
+</script>
+</html>

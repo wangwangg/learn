@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //es5 通过构造函数创建对象
+
+      function User(name, age) {
+        this.name = name;
+        this.age = age;
+        this.login = function () {
+          console.log("登陆----");
+        };
+      }
+
+      function Admin() {
+        this.deleteUser = function () {
+          console.log("删除用户----");
+        };
+      }
+      //需要admin继承user里面的属性以及方法，将admin的prototype 指向一个User的实例就行了
+      Admin.prototype = new User();
+
+      let admin = new Admin();
+      console.log(admin);
+      console.log(admin.name); //undefined
+      admin.login();
+      admin.deleteUser();
+    </script>
+  </body>
+</html>

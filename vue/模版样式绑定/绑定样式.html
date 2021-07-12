@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.1.2/vue.global.js"></script>
+    <style>
+      .red {
+        color: red;
+      }
+      .green {
+        color: green;
+      }
+      .background {
+        background-color: orange;
+      }
+      .font {
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          //变量classString绑定的样式
+          classString: "red",
+          //对象的绑定方式
+          classObject: {
+            green: true,
+            font: true,
+          },
+          //数组的绑定方式
+          classArray: ["background", "red"],
+
+          //行内 string
+          styleString: "color:blue;font-size:20px",
+          //行内 object
+          styleObject: {
+            color: "red",
+            "font-weight": 700,
+            "font-size": "30px",
+          },
+        };
+      },
+      template: `
+          <h3 :class='classString'>hello 变量classString绑定的样式</h3>
+          <span :class='classObject'>你好 对象的绑定方式</span><br/>
+          <span :class='classArray'>こんにちは 数组的绑定方式</span><br/>
+          <span :style="styleString">Hallo 行内样式string绑定</span><br/>
+          <span :style="styleObject">Bonjour 行内样式object绑定</span>
+        `,
+    });
+    app.mount("#app");
+  </script>
+</html>

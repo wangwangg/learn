@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="pl">123</div>
+  <div class="pl">12323</div>
+
+  <script>
+    // 返回一个包含了所有指定类名的子元素的 "类数组对象" ，返回对象是动态的NodeList。 HTMLCollection(2) [div.pl, div.pl]
+    const pl = document.getElementsByClassName('pl')
+    console.log(pl);
+    // console.log(pl[0]);
+    pl[0].addEventListener('click',function(){
+      console.log(123);
+    })
+
+    // 返回与指定的选择器组匹配的文档中的 "元素列表"，返回对象是静态的NodeList。 <div class="pl">123</div>
+    const pll = document.querySelector('.pl')
+    console.log(pll);
+    pll.addEventListener
+  </script>
+</body>
+</html>

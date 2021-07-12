@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let person = {
+        name: "ww",
+        like: {
+          hob: "food",
+        },
+      };
+
+      function copy(per) {
+        let newPer = {};
+        for (i in per) {
+          console.log(per[i]);
+          if (per[i] instanceof Object) {
+            newPer[i] = copy(per[i]);
+          } else {
+            newPer[i] = per[i];
+          }
+        }
+        return newPer;
+      }
+      let newPer = copy(person);
+
+      person.name = "ppp";
+      person.age = 12;
+      person.like.hob = "ball";
+      person.like.sss = "ballqq";
+
+      console.log(person, "person");
+      console.log(newPer, "newper");
+    </script>
+  </body>
+</html>

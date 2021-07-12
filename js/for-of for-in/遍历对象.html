@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // for in 可以遍历到myObject的原型方法method
+      Object.prototype.method = function () {
+        console.log(this);
+      };
+      var myObject = {
+        a: 1,
+        b: 2,
+        c: 3,
+      };
+      for (var key in myObject) {
+        console.log(key); //a,b,c,metnod
+      }
+
+      // 如果不想遍历原型方法和属性的话，可以在循环内部判断一下,hasOwnPropery方法可以判断某属性是否是该对象的实例属性
+      for (var key in myObject) {
+        if (myObject.hasOwnProperty(key)) {
+          console.log(key); //a,b,c
+        }
+      }
+    </script>
+  </body>
+</html>

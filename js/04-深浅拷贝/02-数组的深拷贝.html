@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //slice和concat这两个方法，仅适用于对不包含引用对象的一维数组的深拷贝
+// 方法1 使用slice
+    var arr = ['a', 'b', 'c'];
+    var arrCopy = arr.slice(0);
+    arrCopy[0] = 'test'
+    console.log(arr); // ["a", "b", "c"]
+    console.log(arrCopy); // ["test", "b", "c"]
+
+//方法2 使用concat
+    var arr = ['a', 'b', 'c'];
+    var arrCopy = arr.concat();
+    arrCopy[0] = 'test'
+    console.log(arr); // ["a", "b", "c"]
+    console.log(arrCopy); // ["test", "b", "c"]
+
+    // 针对上面说的slice() 和 concat()对局限性
+    var arr1 = [{"name":"Roubin"},{"name":"RouSe"}];//原数组
+    var arr2 = [].concat(arr1);//拷贝数组
+    arr1[1].name="Tom";
+    console.log(arr1);//[{"name":"Roubin"},{"name":"Tom"}]
+    console.log(arr2);//[{"name":"Roubin"},{"name":"Tom"}]
+
+    var arr1 = [{"name":"weifeng"},{"name":"boy"}];//原数组
+    var arr2 = arr1.slice(0);//拷贝数组
+    arr1[1].name="girl";
+    console.log(arr1);// [{"name":"weifeng"},{"name":"girl"}]
+    console.log(arr2);//[{"name":"weifeng"},{"name":"girl"}
+
+//方法3 展开运算符
+    console.log('------------------------------------------------------');
+    var arr = [1,2,3,4,5]
+    var [ ...arr2 ] = arr
+    arr[2] = 5
+    console.log(arr)  //[1,2,5,4,5]
+    console.log(arr2)  //[1,2,3,4,5]
+  </script>
+</body>
+</html>

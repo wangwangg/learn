@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //方法1
+      // function removeWithoutCopy(arr, item) {
+      //   while (arr.indexOf(item) != -1) {
+      //     console.log(arr);
+      //     arr.splice(arr.indexOf(item), 1);
+      //   }
+      //   return arr;
+      // }
+
+      //方法2
+      function removeWithoutCopy(arr, item) {
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] == item) {
+            arr.splice(i, 1);
+            i--;
+          }
+        }
+        return arr;
+      }
+      let arr = [1, 2, 2, 3, 4, 2, 2];
+      console.log(removeWithoutCopy(arr, 2));
+    </script>
+  </body>
+</html>

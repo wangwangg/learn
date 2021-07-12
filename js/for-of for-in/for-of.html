@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //for of遍历的只是数组内的元素，而不包括数组的原型属性method和索引name
+
+      Array.prototype.method = function () {
+        console.log(this.length);
+      };
+      var myArray = [1, 2, 4, 5, 6, 7];
+      myArray.name = "数组";
+      for (var value of myArray) {
+        console.log(value);
+      }
+    </script>
+  </body>
+</html>

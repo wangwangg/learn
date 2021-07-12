@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function cssStyle2DomStyle(sName) {
+        //split切割函数
+        var arr = sName.split("");
+        console.log(arr);
+        //判断第一个是不是 - ，是的话就删除、
+        if (arr.indexOf("-") == 0) {
+          arr.splice(0, 1);
+        }
+
+        //处理剩余的 -
+        for (var i = 0; i < arr.length; i++) {
+          if (arr[i] == "-") {
+            arr.splice(i, 1);
+            arr[i] = arr[i].toUpperCase();
+          }
+        }
+        console.log(arr);
+        //根据某个字符将数组转成字符串
+        return arr.join("");
+      }
+      console.log(cssStyle2DomStyle("font-size"));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // es5 创建对象用构造函数，es6 用class
+    </script>
+  </head>
+  <body>
+    <script>
+      // User 普通用户，Admin 管理员用户，User里面的属性和方法继承给admin，然后admin里面还有自己的方法
+
+      class User {
+        //属性
+        constructor(name, age) {
+          this.name = name;
+          this.age = age;
+        }
+        //方法
+        login() {
+          console.log("登陆");
+        }
+      }
+      // User.prototype.ppl = function () {   //也可以通过prototype添加
+      //   console.log("as");
+      // };
+
+      class Admin extends User {
+        deleteUser() {
+          console.log("删除用户-----");
+        }
+      }
+
+      let user = new User("user", 12);
+      // user.ppl();
+      console.log(user); //user => __protp__ 为Object
+      user.login();
+      console.log(User.prototype);
+
+      let admin = new Admin("admin", 122);
+      console.log(admin); //admin => __proto__为User  => __proto__为Object
+      admin.login();
+      admin.deleteUser();
+    </script>
+  </body>
+</html>
