@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //方法1 简单递归
+      function sum1(arr) {
+        var len = arr.length;
+        // console.log(arr);
+        if (len == 0) {
+          return 0;
+        } else if (len == 1) {
+          return arr[0];
+        } else {
+          return arr[0] + sum1(arr.slice(1));
+        }
+      }
+      console.log(sum1([1, 2, 3]), "sum1----");
+
+      //方法2
+      function sum2(arr) {
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+          sum += arr[i];
+        }
+        return sum;
+      }
+      console.log(sum2([1, 2, 3]), "sum2----");
+
+      //方法3           https://www.jianshu.com/p/e375ba1cfc47
+      // 1、previousValue （上一次调用回调返回的值，或者是提供的初始值（initialValue））
+      // 2、currentValue （数组中当前被处理的元素）
+      // 3、index （当前元素在数组中的索引）
+      // 4、array （调用 reduce 的数组）
+      function sum3(arr) {
+        return arr.reduce(function (prev, curr, idx, arr) {
+          return prev + curr; //返回上两个元素的和，然后跟当前的元素相加
+        }, 0); //初始值（initialValue）
+      }
+      console.log(sum3([1, 2, 3]), "sum3----");
+
+      //方法4 foreach
+      function sum4(arr) {
+        let sum = 0;
+        arr.forEach((item) => {
+          sum += item;
+        });
+        return sum;
+      }
+      console.log(sum4([1, 2, 3]), "sum4----");
+
+      //方法5 eval函数
+      function sum5(arr) {
+        // console.log(arr.join("+")); 1 + 2 + 3;
+        return eval(arr.join("+"));
+      }
+      console.log(sum5([1, 2, 3]), "sum5----");
+    </script>
+  </body>
+</html>
