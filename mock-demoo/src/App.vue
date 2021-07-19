@@ -29,6 +29,14 @@ export default {
       console.log(res, "fastmock 获取的数据");
     });
   },
+
+  created() {
+    const baseurl =
+      "https://www.fastmock.site/mock/19baedd0843b7496ea4288893c38ae7d/api";
+    axios.get(`${baseurl}/test`).then((res) => {
+      console.log(res, "fastmock 获取的数据");
+    });
+  },
 };
 </script>
 
