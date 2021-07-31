@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="aa bb"></div>
+
+    <script>
+      const div = document.querySelector(".aa");
+      console.log(div.classList);
+
+      // 方法1 使用展开运算符，这种方法需要 对象实现了 Iterator
+      // let classlist = [...div.classList];
+      // console.log(classlist);
+      // classlist.push("pp");
+      // console.log(classlist);
+
+      // 方法2 使用Array.from 这种可以对没有实现Iterator 的使用
+      let classlist = Array.from(div.classList);
+      console.log(classlist);
+      classlist.push("pp");
+      console.log(classlist);
+    </script>
+  </body>
+</html>

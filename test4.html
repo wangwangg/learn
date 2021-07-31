@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      console.log(Array());
+      console.log(Array(3));
+      console.log(Array(3, 4, 5));
+
+      const arr = new Array();
+      arr.push(1, 2, 3);
+
+      console.log(arr);
+
+      let arr3 = [1, 23, 4];
+      let a = arr3.find((n) => {
+        console.log(n);
+        return n > 332;
+      });
+
+      console.log(a, "a");
+
+      console.log(arr3.indexOf(12), "index");
+
+      const contains = (() =>
+        Array.prototype.includes
+          ? (arr, value) => arr.includes(value)
+          : (arr, value) => arr.some((el) => el === value))();
+    </script>
+  </body>
+</html>
