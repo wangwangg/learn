@@ -42,21 +42,22 @@
       //   })();
 
       // 使用事件代理
-      ;(function () {
-        var color_list = document.getElementById('color-list')
-        color_list.addEventListener('click', showColor, false)
+      (function () {
+        var color_list = document.getElementById("color-list");
+        color_list.addEventListener("click", showColor, false);
         function showColor(e) {
-          var x = e.target
-          console.log(x.classList, x.nodeName)
-          if (x.nodeName.toLowerCase() === 'li') {
-            x.classList.add('actsty')
-            console.log('The color is ' + x.innerHTML)
-          } else if (x.nodeName.toLowerCase() === 'span') {
+          console.log(e);
+          var x = e.target;
+          console.log(x.classList, x.nodeName);
+          if (x.nodeName.toLowerCase() === "li") {
+            x.classList.add("actsty");
+            console.log("The color is " + x.innerHTML);
+          } else if (x.nodeName.toLowerCase() === "span") {
             //
-            console.log('这是span', x.innerHTML)
+            console.log("这是span", x.innerHTML);
           }
         }
-      })()
+      })();
     </script>
   </body>
 </html>
